@@ -472,6 +472,8 @@ if __name__ == "__main__":
         elif opcion != 1 and 2:
             print("Sintax error")
             break
+
+# ! /\|=\/
 ```
 
 <table cellspacing="1" bgcolor="" align="center">
