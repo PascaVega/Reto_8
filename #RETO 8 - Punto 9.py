@@ -21,11 +21,19 @@ def desarrollo(x,n):
 def maclaurin(x,n):
     aproximacion : float = 0
     for i in range(n):
-        aproximacion += ((-1)**i) * (x**(2*i+1)) / math.factorial(2*i + 1)
+        a : int = factorial_numero(2*i + 1)
+        aproximacion += ((-1)**i) * (x**(2*i+1)) / a
     valor_real : float = math.sin(x)
     diferencia : float = valor_real - aproximacion
     diferencia_abs = diferencia if diferencia >= 0 else -diferencia
     return aproximacion, valor_real, diferencia_abs
+
+def factorial_numero(i):
+    factorial : int = 1
+    for j in range(1,i+1):
+        factorial *= i
+        i -=1
+    return factorial
 
 def error_menor(x):
     m : int = 0
