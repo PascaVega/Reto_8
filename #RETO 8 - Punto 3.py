@@ -25,13 +25,14 @@ def desarrollo(n):
             print(str(n))
             n -=2
             
-def continuar():
+def continuar():}
+    #El usuario decide si desea volver a correr el programa
     opcion : int = int(input("¿Desea continuar? Marque 1 (sí) o 2 (no): "))
     return opcion
 
 if __name__ == "__main__":
     print("Ingrese un número natural para obtener los números pares descendentes hasta 2")
-
+    #El código se repetirá tantas veces como el usuario desee
     while True:
         introducir()
         opcion = continuar()
