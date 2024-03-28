@@ -1,12 +1,12 @@
 #RETO 8 - Punto 9
-#Diseñar una función que permita calcular una aproximación de la función seno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Maclaurin.
+#Diseñar una función que permita calcular una aproximación de la función arcotangente alrededor de 0 para cualquier valor x en el rango [-1, 1], utilizando los primeros n términos de la serie de Maclaurin.
 
 #Se importa math para concoer el valor real de la función
 import math
 
 def introducir():
     #Se ingresan las dos variables
-    x : float = float(input("Ingrese el valor de x: "))
+    x : float = float(input("Ingrese el valor de x en el rango [-1,1]. Ejemplo: -0.3: "))
     n : int = int(input("Ingrese el número de términos a utilizar: "))
     desarrollo(x,n)
 
@@ -25,32 +25,22 @@ def desarrollo(x,n):
 def maclaurin(x,n):
     #Se define la variable
     aproximacion : float = 0
-     #Se repite el número de terminos a usar
+    #Se repite el número de terminos a usar
     for i in range(n):
-        a : int = factorial_numero(2*i + 1)
-        aproximacion += ((-1)**i) * (x**(2*i+1)) / a
+        aproximacion += ((-1)**i) * (x**(2*i+1)) / (2*i + 1)
     #Se calcula el valor real
-    valor_real : float = math.sin(x)
+    valor_real : float = math.atan(x)
     #Se calcula la diferencia
     diferencia : float = valor_real - aproximacion
     #Se halla el valor absoluto de la ddiferencia
     diferencia_abs = diferencia if diferencia >= 0 else -diferencia
     return aproximacion, valor_real, diferencia_abs
 
-def factorial_numero(i):
-    #Se define la varibale que va a llevar el valor final
-    factorial : int = 1
-    #se repite i veces
-    for j in range(1,i+1):
-        factorial *= i
-        i -=1
-    return factorial
-
 def error_menor(x):
     #Para calcular el número de terminos necesarios para que el error sea menor al 0.1%
     m : int = 0
     #Se halla el error máximo
-    error = 0.001 * math.sin(x)
+    error = 0.001 * math.atan(x)
     #Se repite el ciclo hasta que la diferencia sea menor al error
     while True:
         aprox, v_real, difer = maclaurin(x, m)
