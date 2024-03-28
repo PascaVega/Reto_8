@@ -6,9 +6,10 @@ n : int = 1
 
 if __name__ == "__main__":
     print("Números del 1 al 100 con su respectivo cuadrado.")
-    #Se crea un ciclo for para que se impriman los números en el intervalo [1,100]
+
+    #Se utiliza el ciclo for para imprimir los números
     for i in range(1,101):
-        #m se utiliza para expresar el cuadrado de los números
+        #m funciona como la variable para los cuadrados
         m : int = n**2
         print(f"El cuadrado de {n} es {m}")
         n += 1
